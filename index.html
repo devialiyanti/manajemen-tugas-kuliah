@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DeadLine Kuliah</title>
+  </head>
+  <body>
+    <header class="navbar">
+      <div class="container nav-content">
+        <div class="nav-brand">
+          <div>
+            <h1 id="app-title">DeadLine Kuliah</h1>
+            <p class="subtitle">Pengelolaan Daftar Tugas Perkuliahan</p>
+          </div>
+          <!-- <span id="app-version" class="badge-version">v1.0.0</span> -->
+        </div>
+        <nav class="nav-menu" aria-label="Menu Utama">
+          <a href="#tambah-tugas" class="nav-link active">Tambah Tugas Baru</a>
+          <a href="#daftar-tugas-section" class="nav-link">Daftar Tugas Kuliah</a>
+          <a href="#dokumentasi-teknis" class="nav-link">Dokumentasi Teknis Pengembangan Web</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="container">
+      <section id="tambah-tugas" class="card form-section">
+        <h2 id="form-heading">Tambah Tugas Baru</h2>
+        <form id="tugas-form">
+          <div class="form-grid">
+            <div class="form-group">
+              <label for="mata-kuliah">Mata Kuliah</label>
+              <input
+                type="text"
+                id="mata-kuliah"
+                placeholder="Contoh: Pengembangan Aplikasi Web"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label for="judul-tugas">Judul / Deskripsi Tugas</label>
+              <input
+                type="text"
+                id="judul-tugas"
+                placeholder="Contoh: Tugas Pertemuan 6 Vite & TS"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label for="sks">Bobot SKS</label>
+              <input
+                type="number"
+                id="sks"
+                min="1"
+                max="6"
+                value="3"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label for="deadline">Tenggat Waktu (Deadline)</label>
+              <input type="date" id="deadline" required />
+            </div>
+          </div>
+          <div class="form-actions">
+            <button type="submit" id="btn-submit" class="btn btn-primary">
+              Tambah Tugas
+            </button>
+            <button
+              type="button"
+              id="btn-batal"
+              class="btn btn-secondary hidden"
+            >
+              Batal Edit
+            </button>
+          </div>
+        </form>
+      </section>
+
+      <section id="daftar-tugas-section" class="card list-section">
+        <div class="list-header">
+          <h2>Daftar Tugas Kuliah</h2>
+          <div class="filter-group">
+            <button class="btn-filter active" data-filter="Semua">Semua</button>
+            <button class="btn-filter" data-filter="Belum Selesai">
+              Belum Selesai
+            </button>
+            <button class="btn-filter" data-filter="Selesai">Selesai</button>
+          </div>
+        </div>
+        <div id="statistik-tugas" class="stats-bar"></div>
+        <div id="daftar-tugas" class="tugas-list"></div>
+      </section>
+
+      <section id="dokumentasi-teknis" class="card docs-section">
+        <h2>Dokumentasi Teknis Pengembangan Web</h2>
+        <div class="docs-grid">
+          <article class="doc-item">
+            <h3>1. Git dan GitHub</h3>
+            <p>
+              <strong>Git</strong> adalah sistem kontrol versi terdistribusi
+              untuk melacak setiap perubahan kode secara lokal melalui
+              <em>commit</em> dan <em>branch</em>. <strong>GitHub</strong>
+              berfungsi sebagai repositori jarak jauh (<em>remote</em>) untuk
+              kolaborasi, pengelolaan <em>Pull Request</em>, penggabungan
+              (<em>merge</em>), serta penyelesaian konflik kode.
+            </p>
+          </article>
+
+          <article class="doc-item">
+            <h3>2. npm, package.json, dan Semantic Versioning</h3>
+            <p>
+              <strong>npm</strong> mengelola paket pustaka melalui file
+              <code>package.json</code>. <code>dependencies</code> berisi
+              pustaka yang dibutuhkan saat aplikasi berjalan di produksi,
+              sedangkan <code>devDependencies</code> hanya dipakai saat tahap
+              pengembangan (seperti TypeScript dan Vite). Format
+              <strong>Semantic Versioning</strong>
+              (<code>MAJOR.MINOR.PATCH</code>, contoh <code>^5.6.2</code>)
+              mengatur kompatibilitas pembaruan paket secara otomatis.
+            </p>
+          </article>
+
+          <article class="doc-item">
+            <h3>3. TypeScript</h3>
+            <p>
+              <strong>TypeScript</strong> menambahkan sistem pengetikan statis
+              (<em>static typing</em>) di atas JavaScript menggunakan tipe data
+              primitif (<code>string</code>, <code>number</code>,
+              <code>boolean</code>), <code>Array</code>, <code>Interface</code>,
+              <code>Type Alias</code>, <code>Union Type</code>, dan
+              <code>Generics</code> untuk mencegah bug sebelum kode dijalankan.
+            </p>
+          </article>
+
+          <article class="doc-item">
+            <h3>4. Vite serta Peran Compiler, Transpiler, dan Bundler</h3>
+            <p>
+              <strong>Vite</strong> mempercepat pengembangan web modern melalui
+              tiga mekanisme utama: <strong>Transpiler</strong> (menggunakan
+              <em>esbuild</em> untuk mengubah sintaks TypeScript menjadi
+              JavaScript standar yang dipahami browser),
+              <strong>Compiler</strong> (<code>tsc</code> memeriksa validitas
+              tipe data sebelum proses build), dan <strong>Bundler</strong>
+              (menggunakan <em>Rollup</em> saat perintah
+              <code>npm run build</code> untuk menggabungkan dan meminimalkan
+              seluruh modul aset ke dalam folder <code>dist/</code>).
+            </p>
+          </article>
+
+          <article class="doc-item">
+            <h3>5. Environment Variables</h3>
+            <p>
+              File <code>.env</code> menyimpan variabel konfigurasi lingkungan
+              seperti nama dan versi aplikasi (<code>VITE_APP_NAME</code>,
+              <code>VITE_APP_VERSION</code>). File <code>.env</code> dikecualikan
+              melalui <code>.gitignore</code> agar kredensial rahasia tidak
+              bocor ke GitHub, sementara <code>.env.example</code> disediakan
+              sebagai panduan struktur variabel bagi pengembang lain.
+            </p>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container">
+        <p id="footer-text">Dibangun dengan Vite + TypeScript</p>
+      </div>
+    </footer>
+
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>
